@@ -27,3 +27,10 @@ def prastevila(n):  # vrne seznam prastevil na intervalu od 2 do n, vključno
 
     rez = [n for n in range(2, len(s)) if not s[n]]
     return rez
+
+def delitelji(n):  # vrne delitelje števila
+    rez = [];
+    for i in range(1, n + 1):
+        if n % i == 0:
+            rez.append(i)
+    return rez
