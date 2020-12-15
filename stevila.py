@@ -28,9 +28,22 @@ def prastevila(n):  # vrne seznam prastevil na intervalu od 2 do n, vključno
     rez = [n for n in range(2, len(s)) if not s[n]]
     return rez
 
-def delitelji(n):  # vrne delitelje števila
-    rez = [];
+def delitelji(n):  # vrne seznam deliteljev števila n
+    rez = []
     for i in range(1, n + 1):
         if n % i == 0:
             rez.append(i)
     return rez
+
+def prafaktorji(n):  # vrne prafaktorje števila n
+    rez = []
+    for i in range(1, n + 1):
+        if n % i == 0 and len(delitelji(i)) == 2:
+            rez.append(i)
+    return rez
+
+def fi(n):  # vrne rezultat Eulerjeve funkcije števila n
+    rez = n
+    for i in prafaktorji(n):
+        rez *= (1 - 1/i)
+    return int(rez)
